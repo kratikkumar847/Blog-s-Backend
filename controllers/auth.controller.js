@@ -14,17 +14,17 @@ const signup = async (req,res) =>{
     try {
         const newUser = await User.create(usersignup);
           const ResponseOfNewUser = {
-            name: createdUser.name,
-            userID: createdUser.userID,
-            email: createdUser.email,
-            createdAt: createdUser.createdAt,
-            updatedAt: createdUser.updatedAt,
+            name: newUser.name,
+            userID: newUser.userID,
+            email: newUser.email,
+            createdAt: newUser.createdAt,
+            updatedAt: newUser.updatedAt,
           }
 
         return res.status(201).send({
           success: true,
           status: 201,
-          message: `${createdUser.name} , Added Successully !`,
+          message: `${ResponseOfNewUser.name} , Added Successully !`,
           user: ResponseOfNewUser,
         })
     } catch (error) {
